@@ -12,14 +12,7 @@ const MenuItem = (props) => {
 
   return (
     <li onClick={props.onClick}>
-      <Link
-        exact
-        to={to}
-        // onClick={() => {
-        //   setExpand((e) => !e);
-        // }}
-        className={`menu-item`}
-      >
+      <Link exact to={to} className={`menu-item`}>
         <div className="menu-icon">
           <i class={iconClassName}></i>
         </div>
