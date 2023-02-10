@@ -6,86 +6,56 @@ import { Button } from "@tremor/react";
 
 export default function graSimulation() {
   const [accountNumber, setAccountNumber] = useState("");
+  const [sendersAccount, setSendersAccount] = useState("");
+  const [beneficiarysBank, setBeneficiarysBank] = useState("");
+  const [beneficiarysAccount, setBeneficiarysAccount] = useState("");
+  const [amount, setAmount] = useState("");
+  const [eLevy, setElevy] = useState("");
+
+  function getElevy() {}
 
   return (
     <div>
       <div style={{ width: "40%" }}>
-        <Card
-          maxWidth="max-w-none"
-          hFull={false}
-          shadow={true}
-          decoration=""
-          decorationColor="blue"
-          marginTop="mt-0">
-          <Text
-            color="gray"
-            textAlignment="text-left"
-            truncate={false}
-            height=""
-            marginTop="mt-0">
-            Sender's Account Number
-          </Text>
+        <Card>
+          <Text color="gray">Sender's Account Number</Text>
           <TextInput
-            placeholder=""
-            value=""
-            onChange={undefined}
-            maxWidth="max-w-none"
+            value={sendersAccount}
+            onChange={(e) => setSendersAccount(e.target.value)}
             marginTop="mt-3"
+            placeholder=""
           />
-          <Text
-            color="gray"
-            textAlignment="text-left"
-            height=""
-            marginTop="mt-3">
+          <Text color="gray" marginTop="mt-3">
             Beneficiary's Bank
           </Text>
           <TextInput
-            value=""
-            onChange={undefined}
+            value={beneficiarysBank}
+            onChange={(e) => setBeneficiarysBank(e.target.value)}
             placeholder=""
-            maxWidth="max-w-none"
             marginTop="mt-3"
           />
-          <Text color="gray" textAlignment="text-left" marginTop="mt-5">
+          <Text color="gray" marginTop="mt-5">
             Beneficiary's Account Number
           </Text>
           <TextInput
-            value=""
-            onChange={undefined}
+            value={beneficiarysAccount}
+            onChange={(e) => setBeneficiarysAccount(e.target.value)}
             placeholder=""
-            maxWidth="max-w-none"
             marginTop="mt-3"
           />
-          <Text
-            color="gray"
-            textAlignment="text-left"
-            truncate={false}
-            height=""
-            marginTop="mt-3">
-            Amount{" "}
+          <Text color="gray" marginTop="mt-3">
+            Amount
           </Text>
           <TextInput
-            value=""
-            onChange={undefined}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
             placeholder=""
-            maxWidth="max-w-none"
             marginTop="mt-3"
           />
-          <Text
-            color="gray"
-            textAlignment="text-left"
-            truncate={false}
-            height=""
-            marginTop="mt-3">
+          <Text color="gray" marginTop="mt-3">
             e-Levy
           </Text>
-          <TextInput
-            value=""
-            onChange={undefined}
-            placeholder=""
-            maxWidth="max-w-none"
-            marginTop="mt-3"
-          />
+          <TextInput value={eLevy} placeholder="" marginTop="mt-3" />
           <Button
             type="button"
             size="sm"

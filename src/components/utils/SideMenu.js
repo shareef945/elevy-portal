@@ -8,6 +8,8 @@ import graSimulation from "../pages/graSimulation";
 import graSubmission from "../pages/graSubmission";
 import graTinStatus from "../pages/graTinStatus";
 
+
+
 /**
  * @author
  * @function SideMenu
@@ -18,7 +20,7 @@ export const menuItems = [
   {
     name: "Dashboard",
     exact: true,
-    to: "/",
+    to: "/dashboard",
     iconClassName: "bi bi-bar-chart-fill",
   },
   {
@@ -56,7 +58,7 @@ export const menuItems = [
     ],
   },
 ];
-
+// 
 const SideMenu = (props) => {
   const [inactive, setInactive] = useState(false);
 
@@ -93,6 +95,7 @@ const SideMenu = (props) => {
       });
     });
   }, []);
+
 
   return (
     <div className={`side-menu ${inactive ? "inactive" : ""}`}>
@@ -134,8 +137,7 @@ const SideMenu = (props) => {
       <div className="side-menu-footer">
         <div className="avatar"></div>
         <div className="user-info">
-          <h5>Rizwan Khan</h5>
-          <p>rizwankhan@gmail.com</p>
+          <h5>Ecobank Ghana PLC</h5>
         </div>
       </div>
     </div>

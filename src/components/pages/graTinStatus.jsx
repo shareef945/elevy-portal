@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "@tremor/react";
-import { TextInput } from "@tremor/react";
 import { Text } from "@tremor/react";
-import { DateRangePicker, DateRangePickerValue } from "@tremor/react";
-import enUS from "date-fns/locale/en-US";
 import { Button } from "@tremor/react";
-import { StatusOnlineIcon } from "@heroicons/react/outline";
 import {
   Table,
   TableHead,
@@ -13,13 +9,10 @@ import {
   TableHeaderCell,
   TableBody,
   TableCell,
-  Title,
   Badge,
 } from "@tremor/react";
-import { Dropdown, DropdownItem } from "@tremor/react";
 
 export default function graTinStatus() {
-  const [accountNumber, setAccountNumber] = useState("");
   const data = [
     {
       name: "Viola Amherd",
@@ -49,24 +42,13 @@ export default function graTinStatus() {
     },
   ];
 
+  function getTinStatus() {}
+
   return (
     <div>
       <div style={{ width: "40%" }}>
-        <Card
-          maxWidth="max-w-none"
-          hFull={false}
-          shadow={true}
-          decoration=""
-          decorationColor="blue"
-          marginTop="mt-0">
-          <Text
-            color="gray"
-            textAlignment="text-left"
-            truncate={false}
-            height=""
-            marginTop="mt-0">
-            Paste All TIN's Below
-          </Text>
+        <Card>
+          <Text color="gray">Paste All TIN's Below</Text>
           <textarea
             id=""
             cols="37"
@@ -75,16 +57,15 @@ export default function graTinStatus() {
           <Button
             type="button"
             size="sm"
-            color="blue"
+            color="gray"
             variant="secondary"
-            onClick={undefined}
+            onClick={getTinStatus}
             marginTop="mt-6">
-            Upload
+            Submit
           </Button>
         </Card>
       </div>
       <div style={{ marginTop: "5%" }}>
-        {" "}
         <Card>
           <Table marginTop="mt-3">
             <TableHead>

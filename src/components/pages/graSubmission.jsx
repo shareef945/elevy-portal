@@ -3,9 +3,14 @@ import { Card } from "@tremor/react";
 import { Text } from "@tremor/react";
 import { Button } from "@tremor/react";
 
-
 export default function graSubmission() {
   const [accountNumber, setAccountNumber] = useState("");
+  const [file, setFile] = useState(null);
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files[0];
+    setFile(file);
+  };
 
   return (
     <div>
@@ -29,12 +34,11 @@ export default function graSubmission() {
           <Button
             type="button"
             size="sm"
-            color="blue"
+            color="gray"
             variant="secondary"
             onClick={undefined}
             marginTop="mt-6">
-            Upload
-            <input hidden accept="image/*" multiple type="file" />
+            <input type="file" onChange={handleFileUpload} />
           </Button>
         </Card>
       </div>
