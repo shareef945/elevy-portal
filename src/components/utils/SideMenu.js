@@ -3,6 +3,10 @@ import React, { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import graNewRequest from "../pages/graNewRequest";
 import graBulkRequest from "../pages/graBulkRequests";
+import graAllRequests from "../pages/graAllRequests";
+import graSimulation from "../pages/graSimulation";
+import graSubmission from "../pages/graSubmission";
+import graTinStatus from "../pages/graTinStatus";
 
 /**
  * @author
@@ -33,10 +37,22 @@ export const menuItems = [
         to: "/gra/bulkrequests",
         component: graBulkRequest,
       },
-      { name: "View All Request", to: "/gra/allrequests" },
-      { name: "TIN Status", to: "/gra/tinstatus" },
-      { name: "GRA Simulation", to: "/gra/simulation" },
-      { name: "GRA Response Submission", to: "/gra/submission" },
+      {
+        name: "View All Request",
+        to: "/gra/allrequests",
+        component: graAllRequests,
+      },
+      { name: "TIN Status", to: "/gra/tinstatus", component: graTinStatus },
+      {
+        name: "GRA Simulation",
+        to: "/gra/simulation",
+        component: graSimulation,
+      },
+      {
+        name: "GRA Response Submission",
+        to: "/gra/submission",
+        component: graSubmission,
+      },
     ],
   },
 ];

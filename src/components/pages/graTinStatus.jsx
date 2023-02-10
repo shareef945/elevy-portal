@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { Card } from "@tremor/react";
 import { TextInput } from "@tremor/react";
 import { Text } from "@tremor/react";
-import { DateRangePicker } from "@tremor/react";
+import { DateRangePicker, DateRangePickerValue } from "@tremor/react";
 import enUS from "date-fns/locale/en-US";
 import { Button } from "@tremor/react";
+import { StatusOnlineIcon } from "@heroicons/react/outline";
 import {
   Table,
   TableHead,
@@ -12,10 +13,12 @@ import {
   TableHeaderCell,
   TableBody,
   TableCell,
+  Title,
   Badge,
 } from "@tremor/react";
+import { Dropdown, DropdownItem } from "@tremor/react";
 
-export default function graNewRequest() {
+export default function graTinStatus() {
   const [accountNumber, setAccountNumber] = useState("");
   const data = [
     {
@@ -45,11 +48,13 @@ export default function graNewRequest() {
       status: "active",
     },
   ];
+
   return (
     <div>
-      <div style={{ width: "40%", height: "10%" }}>
+      <div style={{ width: "40%" }}>
         <Card
           maxWidth="max-w-none"
+          hFull={false}
           shadow={true}
           decoration=""
           decorationColor="blue"
@@ -60,46 +65,26 @@ export default function graNewRequest() {
             truncate={false}
             height=""
             marginTop="mt-0">
-            Account Number
+            Paste All TIN's Below
           </Text>
-          <TextInput
-            value={accountNumber}
-            onChange={console.log("hi")}
-            maxWidth="max-w-none"
-            marginTop="mt-3"
-          />
-          <Text
-            color="gray"
-            textAlignment="text-left"
-            truncate={false}
-            height=""
-            marginTop="mt-5">
-            Transaction Date
-          </Text>
-          <DateRangePicker
-            value={undefined}
-            defaultValue={undefined}
-            onValueChange={undefined}
-            options={undefined}
-            enableDropdown={false}
-            placeholder="Select Transaction Date"
-            locale={enUS} // enUS is the default value, hence it is not specifically imported.
-            color="blue"
-            maxWidth="max-w-none"
-            marginTop="mt-3"
-          />
+          <textarea
+            id=""
+            cols="37"
+            rows="5"
+            style={{ border: "solid 1px gray" }}></textarea>
           <Button
             type="button"
             size="sm"
-            color="gray"
+            color="blue"
             variant="secondary"
             onClick={undefined}
             marginTop="mt-6">
-            Submit
+            Upload
           </Button>
         </Card>
       </div>
       <div style={{ marginTop: "5%" }}>
+        {" "}
         <Card>
           <Table marginTop="mt-3">
             <TableHead>
