@@ -4,7 +4,7 @@ import { TextInput } from "@tremor/react";
 import { Text } from "@tremor/react";
 import { Button } from "@tremor/react";
 
-export default function graSimulation() {
+const GraSimulation = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [sendersAccount, setSendersAccount] = useState("");
   const [beneficiarysBank, setBeneficiarysBank] = useState("");
@@ -69,4 +69,6 @@ export default function graSimulation() {
       </div>
     </div>
   );
-}
+};
+
+export default GraSimulation

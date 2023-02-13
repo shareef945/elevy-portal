@@ -5,7 +5,7 @@ import { Text } from "@tremor/react";
 import { Button } from "@tremor/react";
 import { Dropdown, DropdownItem } from "@tremor/react";
 
-export default function graBulkRequest() {
+const GraBulkRequest = () => {
   const [dropdown, setDropdown] = useState("");
   const [notes, setNotes] = useState("");
 
@@ -51,4 +51,6 @@ export default function graBulkRequest() {
       </div>
     </div>
   );
-}
+};
+
+export default GraBulkRequest;

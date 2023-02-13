@@ -16,7 +16,7 @@ import {
 } from "@tremor/react";
 import dayjs from "dayjs";
 
-export default function graNewRequest() {
+const GraNewRequest = () => {
   const dummData = {
     status_code: 2000,
     status_reason: "",
@@ -60,27 +60,34 @@ export default function graNewRequest() {
   const [date, setDate] = useState(dayjs(today).format("DD-MMM-YYYY"));
   const getTransactions = `https://eghportal-03/backends/elevy_portal/api/get_customer_txns?ac=${accountNumber}&dt=${date}`;
   const [data, setData] = useState(dummData);
+  const [trnRefNo, setTrnRefNo] = useState("");
+  const [clientId, setClientID] = useState("");
+  const [elevyId, setElevyId] = useState("");
+  const [comment, setComment] = useState("");
 
   const handleInput = (event) => {
     setAccountNumber(event.target.value);
   };
 
-
   const submitButton = (params) => {
     return (
       <strong>
-        {params.row.can_raise_reversal === true ? (
-          <Button
-            type="button"
-            variant="secondary"
-            color="gray"
-            size="sm"
-            marginTop="mt-6">
-            Request Refund
-          </Button>
-        ) : (
-          ""
-        )}
+        {params.row.can_raise_reversal === true
+          ? ((
+              <Button
+                type="button"
+                variant="secondary"
+                color="gray"
+                size="sm"
+                marginTop="mt-6"
+                onClick={initiateRefund}>
+                Request Refund
+              </Button>
+            ),
+            setTrnRefNo(params.row.trn_ref_no),
+            setClientID(params.row.client_id),
+            setElevyId(params.row.elevy_id))
+          : ""}
       </strong>
     );
   };
@@ -89,6 +96,25 @@ export default function graNewRequest() {
     fetch(getTransactions, { credentials: "include" })
       .then((response) => response.json())
       .then((json) => setData(json));
+  };
+
+  const refund = {
+    trn_ref_no: {
+      trn_ref_no: trnRefNo,
+      client_id: clientId,
+      elevy_id: elevyId,
+      comment: "",
+    },
+  };
+
+  const initiateRefund = () => {
+    fetch(getTransactions, {
+      credentials: "include",
+      method: "PUT",
+      body: JSON.stringify(refund),
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
   };
 
   return (
@@ -170,7 +196,9 @@ export default function graNewRequest() {
                     <Text>{item.trn_date}</Text>
                   </TableCell>
                   <TableCell>
-                    <Text>{item.can_raise_reversal}</Text>
+                    {item.can_raise_reversal === true
+                      ? submitButton
+                      : "Refund Unavailable"}
                   </TableCell>
                 </TableRow>
               ))}
@@ -181,3 +209,5 @@ export default function graNewRequest() {
     </div>
   );
 }
+
+export default GraNewRequest

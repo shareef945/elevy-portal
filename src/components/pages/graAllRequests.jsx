@@ -11,7 +11,7 @@ import {
 } from "@tremor/react";
 import { Button } from "@tremor/react";
 
-export default function graAllRequests() {
+const GraAllRequests = () => {
   const dummData = {
     status_code: 2000,
     status_reason: "",
@@ -104,4 +104,6 @@ export default function graAllRequests() {
       </div>
     </div>
   );
-}
+};
+
+export default GraAllRequests;

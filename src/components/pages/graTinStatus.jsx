@@ -12,7 +12,7 @@ import {
   Badge,
 } from "@tremor/react";
 
-export default function graTinStatus() {
+const GraTinStatus = () => {
   const data = [
     {
       name: "Viola Amherd",
@@ -97,4 +97,6 @@ export default function graTinStatus() {
       </div>
     </div>
   );
-}
+};
+
+export default GraTinStatus

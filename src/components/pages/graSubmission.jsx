@@ -3,7 +3,7 @@ import { Card } from "@tremor/react";
 import { Text } from "@tremor/react";
 import { Button } from "@tremor/react";
 
-export default function graSubmission() {
+const GraSubmission = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [file, setFile] = useState(null);
 
@@ -45,3 +45,5 @@ export default function graSubmission() {
     </div>
   );
 }
+
+export default GraSubmission

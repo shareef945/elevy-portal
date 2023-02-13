@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 import MenuItem from "./MenuItem";
-import graNewRequest from "../pages/graNewRequest";
-import graBulkRequest from "../pages/graBulkRequests";
-import graAllRequests from "../pages/graAllRequests";
-import graSimulation from "../pages/graSimulation";
-import graSubmission from "../pages/graSubmission";
-import graTinStatus from "../pages/graTinStatus";
-
-
+import GraNewRequest from "../pages/graNewRequest";
+import GraBulkRequest from "../pages/graBulkRequests";
+import GraAllRequests from "../pages/graAllRequests";
+import GraSimulation from "../pages/graSimulation";
+import GraSubmission from "../pages/graSubmission";
+import GraTinStatus from "../pages/graTinStatus";
 
 /**
  * @author
@@ -32,33 +30,33 @@ export const menuItems = [
       {
         name: "Raise New Request",
         to: "/gra/newrequest",
-        component: graNewRequest,
+        component: GraNewRequest,
       },
       {
         name: "Bulk Request Upload",
         to: "/gra/bulkrequests",
-        component: graBulkRequest,
+        component: GraBulkRequest,
       },
       {
         name: "View All Request",
         to: "/gra/allrequests",
-        component: graAllRequests,
+        component: GraAllRequests,
       },
-      { name: "TIN Status", to: "/gra/tinstatus", component: graTinStatus },
+      { name: "TIN Status", to: "/gra/tinstatus", component: GraTinStatus },
       {
         name: "GRA Simulation",
         to: "/gra/simulation",
-        component: graSimulation,
+        component: GraSimulation,
       },
       {
         name: "GRA Response Submission",
         to: "/gra/submission",
-        component: graSubmission,
+        component: GraSubmission,
       },
     ],
   },
 ];
-// 
+//
 const SideMenu = (props) => {
   const [inactive, setInactive] = useState(false);
 
@@ -95,7 +93,6 @@ const SideMenu = (props) => {
       });
     });
   }, []);
-
 
   return (
     <div className={`side-menu ${inactive ? "inactive" : ""}`}>
