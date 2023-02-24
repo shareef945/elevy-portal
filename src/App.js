@@ -1,7 +1,6 @@
 import "./App.css";
 import SideMenu, { menuItems } from "./components/utils/SideMenu";
 import "@tremor/react/dist/esm/tremor.css";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import LandingPage from "./components/pages/landingPage";
